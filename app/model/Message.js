@@ -5,6 +5,7 @@ Ext.define('MontessoriCompass.model.Message', {
         {name: 'sender', type: 'string'},
         {name: 'subject', type: 'string'},
         {name: 'date', type: 'string' },
+        {name: 'shortDate', type: 'string'},
         {name: 'href', type: 'string'},
         {name: 'replyLink', type: 'string'},
         {name: 'forwardLink', type: 'string'}

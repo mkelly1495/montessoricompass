@@ -23,6 +23,35 @@ Ext.define('MontessoriCompass.view.photo.PhotoAlbumsController', {
             }
         });
     },
+    onShareImage: function () {
+        if (window.plugins && window.plugins.socialsharing) {
+            var imgPanel = this.getView().getActiveItem();
+            var img = imgPanel.down('img');
+            
+            var title = imgPanel.config.record.get('title');
+            var imgUrl = imgPanel.config.record.get('href');
+
+            img.setHtml('<i style="color: #157FCC;font-size: 50px;" class="fa fa-spinner fa-spin"></i>');
+
+            // hide the mask when share operation completed.
+            var callback = function (wasShared) {
+                img.setHtml(null);
+            };
+
+            try {
+                window.plugins.socialsharing.share(
+                        title,
+                        null,
+                        imgUrl,
+                        null,
+                        callback,
+                        callback);
+            } catch (e) {
+                img.setHtml(null);
+                console.log(e.message);
+            }
+        }
+    },
     onPhotoSelected: function (self, index, target, record, e, eOpts) {
         var photoalbums = this.getView();
 
@@ -32,6 +61,8 @@ Ext.define('MontessoriCompass.view.photo.PhotoAlbumsController', {
             var photoPanel = Ext.create('Ext.Container', {
                 title: record.get('title'),
                 layout: 'fit',
+                itemId: 'photoView',
+                record: record,
                 items: [
                     {
                         xtype: 'img',
@@ -56,9 +87,14 @@ Ext.define('MontessoriCompass.view.photo.PhotoAlbumsController', {
         this.lookupReference('backButton').setHidden(true);
 
         navBarViewModel.set('showBack', false);
+        navBarViewModel.set('showShare', false);
 
         if (navView.getActiveItem().getItemId() !== 'albumslist') {
             navBarViewModel.set('showBack', true);
+
+            if (navView.getActiveItem().getItemId() === 'photoView') {
+                navBarViewModel.set('showShare', true);
+            }
         }
     },
     onPhotoAlbumSelected: function (self, index, target, record, e, eOpts) {

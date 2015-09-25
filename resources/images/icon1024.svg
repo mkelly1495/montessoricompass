@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="1024"
+   viewBox="0 0 1024 1024"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon1024.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="375"
+     inkscape:cy="520"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1440"
+     inkscape:window-height="795"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-28.362161)">
+    <g
+       transform="matrix(29.733962,0,0,29.808303,35.832696,64.184408)"
+       id="g8">
+      <title
+         id="title10">Layer 1</title>
+      <g
+         style="fill:none;fill-rule:evenodd"
+         id="Page-1">
+        <g
+           style="fill:#157efb"
+           id="icon-64-compass"
+           stroke="null">
+          <path
+             inkscape:connector-curvature="0"
+             d="m 16.014257,31.809183 c 8.767029,0 15.874104,-7.089352 15.874104,-15.834514 0,-8.745162 -7.107075,-15.834515 -15.874104,-15.834515 -8.767026,0 -15.874104,7.089353 -15.874104,15.834515 0,8.745162 7.107078,15.834514 15.874104,15.834514 l 0,0 z m 0,-1.266762 c 8.065659,0 14.604177,-6.522209 14.604177,-14.567752 0,-8.045542 -6.538519,-14.567754 -14.604177,-14.567754 -8.065658,0 -14.604176,6.522212 -14.604176,14.567754 0,8.045543 6.538518,14.567752 14.604176,14.567752 l 0,0 z m 0,-1.26676 c 7.364304,0 13.334246,-5.955057 13.334246,-13.300992 0,-7.345936 -5.969942,-13.300993 -13.334246,-13.300993 -7.364302,0 -13.334248,5.955057 -13.334248,13.300993 0,7.345935 5.969946,13.300992 13.334248,13.300992 l 0,0 z m 2.24494,-11.061647 C 16.014257,20.453342 7.4835,24.48415 7.4835,24.48415 c 0,0 4.040886,-8.50948 6.285815,-10.748823 2.244942,-2.239329 10.7757,-6.270139 10.7757,-6.270139 0,0 -4.040888,8.509481 -6.285818,10.748826 l 0,0 z M 16.014257,3.940438 c -0.350678,0 -0.634964,0.272429 -0.634964,0.621321 l 0,3.824403 c 0,0.343153 0.294534,0.621321 0.634964,0.621321 0.350679,0 0.634964,-0.27243 0.634964,-0.621321 l 0,-3.824403 c 0,-0.343153 -0.294537,-0.621321 -0.634964,-0.621321 l 0,0 z m 12.119345,12.089118 c 0,-0.349803 -0.2731,-0.63338 -0.62286,-0.63338 l -3.833979,0 c -0.343996,0 -0.622877,0.293814 -0.622877,0.63338 0,0.349819 0.273115,0.633383 0.622877,0.633383 l 3.833979,0 c 0.343996,0 0.62286,-0.293802 0.62286,-0.633383 l 0,0 z M 16.014257,28.11869 c 0.350679,0 0.634964,-0.272429 0.634964,-0.621321 l 0,-3.824404 c 0,-0.343153 -0.294537,-0.621321 -0.634964,-0.621321 -0.350678,0 -0.634964,0.272429 -0.634964,0.621321 l 0,3.824404 c 0,0.343138 0.294534,0.621321 0.634964,0.621321 l 0,0 z M 3.894912,16.029556 c 0,0.349819 0.273098,0.633383 0.622862,0.633383 l 3.833977,0 c 0.344,0 0.622874,-0.293802 0.622874,-0.633383 0,-0.349803 -0.273111,-0.63338 -0.622874,-0.63338 l -3.833977,0 c -0.343997,0 -0.622862,0.293814 -0.622862,0.63338 l 0,0 z m 10.754781,-1.321648 c -1.34696,1.343601 -4.400072,7.076317 -4.400072,7.076317 0,0 5.747049,-3.045509 7.093998,-4.389111 l -2.693926,-2.687206 0,0 z"
+             id="compass"
+             stroke="null" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

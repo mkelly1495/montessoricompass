@@ -68,6 +68,7 @@ Ext.define("MontessoriCompass.view.message.NewMessage", {
                     xtype: 'textareafield',
                     flex: 1,
                     name: 'recipients',
+                    placeHolder: 'Tap to select recipients',
                     itemId: 'recipients',
                     label: 'To',
                     labelAlign: 'top',

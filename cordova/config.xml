@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.kelly.MontessoriCompass" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.kelly.MontessoriCompass" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Montessori Compass</name>
     <description>
         An application for viewing Montessori Compass content.
@@ -8,8 +8,6 @@
         Michael Kelly
     </author>
     <content src="index.html" />
-    <plugin name="cordova-plugin-whitelist" version="1" />
-    <plugin name="cordova-plugin-splashscreen" version="2.1.0" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -17,32 +15,69 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="AutoHideSplashScreen" value="false" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <platform name="android">
-        <preference name="android-targetSdkVersion" value="22" />        
-        <preference name="android-minSdkVersion" value="19" />
+        <preference name="android-targetSdkVersion" value="22" />
+        <preference name="android-minSdkVersion" value="16" />
         <allow-intent href="market:*" />
-        <icon src="www/resources/images/icon-ldpi.png" density="ldpi" />
-        <icon src="www/resources/images/icon-mdpi.png" density="mdpi" />
-        <icon src="www/resources/images/icon-hdpi.png" density="hdpi" />
-        <icon src="www/resources/images/icon-xhdpi.png" density="xhdpi" />
-        <icon src="www/resources/images/icon-xxhdpi.png" density="xxhdpi" />
-        <icon src="www/resources/images/icon-xxxhdpi.png" density="xxxhdpi" />
-        <!-- you can use any density that exists in the Android project -->
-        <splash src="www/resources/images/splash800x480.png" density="land-hdpi"/>
-        <splash src="www/resources/images/splash320x200.png" density="land-ldpi"/>
-        <splash src="www/resources/images/splash480x320.png" density="land-mdpi"/>
-        <splash src="www/resources/images/splash1280x720.png" density="land-xhdpi"/>
-        <splash src="www/resources/images/splash480x800.png" density="port-hdpi"/>
-        <splash src="www/resources/images/splash200x320.png" density="port-ldpi"/>
-        <splash src="www/resources/images/splash320x480.png" density="port-mdpi"/>
-        <splash src="www/resources/images/splash720x1280.png" density="port-xhdpi"/>
+        <icon density="ldpi" src="www/resources/images/android/icon-ldpi.png" />
+        <icon density="mdpi" src="www/resources/images/android/icon-mdpi.png" />
+        <icon density="hdpi" src="www/resources/images/android/icon-hdpi.png" />
+        <icon density="xhdpi" src="www/resources/images/android/icon-xhdpi.png" />
+        <icon density="xxhdpi" src="www/resources/images/android/icon-xxhdpi.png" />
+        <icon density="xxxhdpi" src="www/resources/images/android/icon-xxxhdpi.png" />
+        <splash density="land-hdpi" src="www/resources/images/android/splash800x480.png" />
+        <splash density="land-ldpi" src="www/resources/images/android/splash320x200.png" />
+        <splash density="land-mdpi" src="www/resources/images/android/splash480x320.png" />
+        <splash density="land-xhdpi" src="www/resources/images/android/splash1280x720.png" />
+        <splash density="port-hdpi" src="www/resources/images/android/splash480x800.png" />
+        <splash density="port-ldpi" src="www/resources/images/android/splash200x320.png" />
+        <splash density="port-mdpi" src="www/resources/images/android/splash320x480.png" />
+        <splash density="port-xhdpi" src="www/resources/images/android/splash720x1280.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <icon height="29" src="www/resources/images/ios/icon29.png" width="29" />
+        <icon height="40" src="www/resources/images/ios/icon40.png" width="40" />
+        <icon height="58" src="www/resources/images/ios/icon58.png" width="58" />
+        <icon height="76" src="www/resources/images/ios/icon76.png" width="76" />
+        <icon height="80" src="www/resources/images/ios/icon80.png" width="80" />
+        <icon height="120" src="www/resources/images/ios/icon120.png" width="120" />
+        <icon height="152" src="www/resources/images/ios/icon152.png" width="152" />
+        <icon height="1024" src="www/resources/images/ios/icon1024.png" width="1024" />
+        <icon height="50" src="www/resources/images/ios/icon50.png" width="50" />
+        <icon height="57" src="www/resources/images/ios/icon57.png" width="57" />
+        <icon height="60" src="www/resources/images/ios/icon60.png" width="60" />
+        <icon height="72" src="www/resources/images/ios/icon72.png" width="72" />
+        <icon height="100" src="www/resources/images/ios/icon100.png" width="100" />
+        <icon height="114" src="www/resources/images/ios/icon114.png" width="114" />
+        <icon height="144" src="www/resources/images/ios/icon144.png" width="144" />
+        <icon height="180" src="www/resources/images/ios/icon180.png" width="180" />
+        <splash height="480" src="www/resources/images/ios/launch_image320x480.png" width="320" />
+        <splash height="960" src="www/resources/images/ios/launch_image640x960.png" width="640" />
+        <splash height="1136" src="www/resources/images/ios/launch_image640x1136.png" width="640" />
+        <splash height="1004" src="www/resources/images/ios/launch_image768x1004.png" width="768" />
+        <splash height="1024" src="www/resources/images/ios/launch_image768x1024.png" width="768" />
+        <splash height="748" src="www/resources/images/ios/launch_image1024x748.png" width="1024" />
+        <splash height="768" src="www/resources/images/ios/launch_image1024x768.png" width="1024" />
+        <splash height="1024" src="www/resources/images/ios/launch_image1024x1024.png" width="1024" />
+        <splash height="2008" src="www/resources/images/ios/launch_image1536x2008.png" width="1536" />
+        <splash height="1496" src="www/resources/images/ios/launch_image2048x1496.png" width="2048" />
+        <splash height="1536" src="www/resources/images/ios/launch_image2048x1536.png" width="2048" />
+        <splash height="1334" src="www/resources/images/ios/launch_image750x1334.png" width="750" />
+        <splash height="750" src="www/resources/images/ios/launch_image1334x750.png" width="1334" />
+        <splash height="2208" src="www/resources/images/ios/launch_image1242x2208.png" width="1242" />
+        <splash height="1242" src="www/resources/images/ios/launch_image2208x1242.png" width="2208" />
     </platform>
+    <preference name="xwalkVersion" value="14+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="xwalkMultipleApk" value="true" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-splashscreen" spec="~2.1.0" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="~5.0.1" />
+    <plugin name="dispatch-cordova-plugin-crosswalk-webview" spec="~1.4.1" />
 </widget>

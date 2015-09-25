@@ -23,6 +23,7 @@ Ext.define('MontessoriCompass.Application', {
         'Ext.field.Email',
         'Ext.field.Hidden',
         'Ext.field.Password',
+        'Ext.field.Search',
         'Ext.field.Toggle',
         'Ext.field.TextArea',
         'Ext.field.Text',
@@ -31,12 +32,14 @@ Ext.define('MontessoriCompass.Application', {
         'Ext.layout.Card',
         'Ext.layout.Fit',
         'Ext.navigation.View',
+        'Ext.os',
         'Ext.tab.Panel',
         'Ext.layout.HBox',
         'Ext.layout.VBox',
         'Ext.Panel',
         'Ext.LoadMask',
         'Ext.MessageBox',
+        'Ext.Toolbar',
         'MontessoriCompass.view.message.MessageRecipientSelector',
         'MontessoriCompass.view.message.NewMessage',
         'MontessoriCompass.view.photo.Photos',
@@ -74,6 +77,18 @@ Ext.define('MontessoriCompass.Application', {
         'message.Messages',
         'photo.PhotoAlbums'
     ],
+    init: function (app) {
+        document.addEventListener('deviceready', function (e) {
+            // hide the splash screen
+            if (navigator.splashscreen) {
+                try {
+                    navigator.splashscreen.hide();
+                } catch (ex) {
+                    console.log(ex.message);
+                }
+            }
+        });
+    },
     launch: function () {
         // TODO - Launch the application
         var self = this;

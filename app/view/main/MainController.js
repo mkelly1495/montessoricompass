@@ -21,10 +21,10 @@ Ext.define('MontessoriCompass.view.main.MainController', {
             }
         }
     },
-    onTextFieldFocus: function(self) {
+    onTextFieldFocus: function (self) {
         this.lookupReference('tabview').getTabBar().setHidden(true);
     },
-    onTextFieldBlur: function(self) {
+    onTextFieldBlur: function (self) {
         this.lookupReference('tabview').getTabBar().setHidden(false);
     },
     populateContent: function () {
@@ -51,11 +51,14 @@ Ext.define('MontessoriCompass.view.main.MainController', {
                 'login', {}, '#login');
     },
     tabChanged: function (self, value, oldValue, eOpts) {
-        var tabTitles = ['Messages', 'Photos', 'Directory'];
-        
-        var newTabIndex = tabTitles.indexOf(value.title);
-        
-        MontessoriCompass.app.pushHistoryState(
-                "tabChange", {value: newTabIndex}, '#' + value.title.toLowerCase());
+        // only track tab change history on android.
+        if (Ext.os.is.Android) {
+            var tabTitles = ['Messages', 'Photos', 'Directory'];
+
+            var newTabIndex = tabTitles.indexOf(value.title);
+
+            MontessoriCompass.app.pushHistoryState(
+                    "tabChange", {value: newTabIndex}, '#' + value.title.toLowerCase());
+        }
     }
 });

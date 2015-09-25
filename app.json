@@ -569,7 +569,7 @@
             "packager": "cordova",
             "cordova" : {
                 "config": {
-                    "platforms": "android",
+                    "platforms": "ios android",
                     "id": "org.kelly.MontessoriCompass",
                     "name": "MontessoriCompass"
                 }

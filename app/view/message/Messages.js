@@ -66,6 +66,7 @@ Ext.define("MontessoriCompass.view.message.Messages", {
             },
             {
                 iconCls: 'x-fa fa-plus',
+                padding: '0 0 0 15',
                 align: 'right',
                 handler: 'onNewMessage',
                 ui: 'plain',
@@ -84,6 +85,7 @@ Ext.define("MontessoriCompass.view.message.Messages", {
             },
             {
                 iconCls: 'x-fa fa-share',
+                padding: '0 0 0 15',
                 align: 'right',
                 ui: 'plain',
                 handler: 'onForwardMessage',
@@ -103,6 +105,7 @@ Ext.define("MontessoriCompass.view.message.Messages", {
             },
             {
                 iconCls: 'x-fa fa-user-times',
+                padding: '0 0 0 15',
                 align: 'right',
                 style: 'color: #A62F2F',
                 ui: 'plain',
@@ -131,7 +134,7 @@ Ext.define("MontessoriCompass.view.message.Messages", {
             reference: 'messagelist',
             store: [],
             itemTpl: [
-                '<div><tpl if="isNew"><b></tpl>From: {sender}<tpl if="isNew"></b></tpl></div>',
+                '<div><tpl if="isNew"><b></tpl>From: {sender} <span style="float: right;">{shortDate}</span><tpl if="isNew"></b></tpl></div>',
                 '<div><tpl if="isNew"><b></tpl>{subject}<tpl if="isNew"></b></tpl></div>'
             ],
             listeners: {

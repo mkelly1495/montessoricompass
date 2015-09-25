@@ -132,7 +132,7 @@ Ext.define('MontessoriCompass.view.message.MessagesController', {
         var listView = messages.getActiveItem();
 
         // update the selected users
-        var selectedUsers = listView.getSelections();
+        var selectedUsers = listView.down('list').getSelections();
         var formViewModel = listView.newMessageForm.getViewModel();
 
         formViewModel.set('selectedRecipientIds', _.map(selectedUsers, function (user) {
@@ -160,18 +160,17 @@ Ext.define('MontessoriCompass.view.message.MessagesController', {
 
         var recipList = Ext.create('MontessoriCompass.view.message.MessageRecipientSelector', {
             title: selectedRecords.length + ' Recipients',
-            newMessageForm: form,
-            store: {
-                data: users
-            },
-            listeners: {
-                selectionchange: function (self, records) {
-                    navBar.setTitle(self.getSelectionCount() + ' Recipients');
-                }
-            }
+            newMessageForm: form
         });
 
-        recipList.select(selectedRecords);
+        var list = recipList.down('list');
+
+        list.getStore().setData(users);
+        list.addListener('selectionchange', function (lst, records) {
+            navBar.setTitle(lst.getSelectionCount() + ' Recipients');
+        });
+
+        list.select(selectedRecords);
 
         MontessoriCompass.app.pushHistoryState(
                 'selectRecipients', {}, '#selectRecipients');
@@ -220,57 +219,59 @@ Ext.define('MontessoriCompass.view.message.MessagesController', {
     onNewMessageSubmit: function (self) {
         var navView = this.getView();
 
-        Ext.Msg.confirm(
-                "Confirm Send",
-                "Are you sure you wish to send?",
-                function (buttonId) {
-                    if (buttonId === 'yes') {
-                        doSubmit();
-                    }
+        var messageForm = navView.getActiveItem();
+
+        if (!Ext.isEmpty(messageForm.getViewModel().get('selectedRecipientIds'))) {
+            Ext.Msg.confirm(
+                    "Confirm Send",
+                    "Are you sure you wish to send?",
+                    function (buttonId) {
+                        if (buttonId === 'yes') {
+                            doSubmit();
+                        }
+                    });
+
+            var doSubmit = function () {
+                // if this message was a forward or reply, then we need
+                // to append the original content
+                var origContent = messageForm.getViewModel().get('origContent');
+                var msgType = messageForm.getViewModel().get('msgType');
+                var currRecord = navView.getNavigationBar().getViewModel().get('currRecord');
+
+                var msgBody = messageForm.getViewModel().get('messageBody');
+
+                if (!Ext.isEmpty(origContent)) {
+                    var sepString = msgType === 'Reply'
+                            ? '---------------------------------------'
+                            : '---------- Forwarded message ----------';
+
+                    msgBody += "<br/>" + sepString + "<br/>" +
+                            'From: ' + currRecord.sender + '<br/>' +
+                            'Date: ' + currRecord.date + '<br/>' +
+                            'Subject: ' + currRecord.subject + "<br/><br/>" +
+                            origContent;
+                }
+
+                // set the form value
+                messageForm.setValues({
+                    'message[body]': msgBody
                 });
 
-        var doSubmit = function () {
-            var messageForm = navView.getActiveItem();
+                messageForm.submit({
+                    url: 'https://montessoricompass.com/app/messages/sent',
+                    responseType: 'text',
+                    success: function (form, result, data) {
+                        // indicate if send was successful
 
-            // if this message was a forward or reply, then we need
-            // to append the original content
-            var origContent = messageForm.getViewModel().get('origContent');
-            var msgType = messageForm.getViewModel().get('msgType');
-            var currRecord = navView.getNavigationBar().getViewModel().get('currRecord');
-
-            var msgBody = messageForm.getViewModel().get('messageBody');
-
-            if (!Ext.isEmpty(origContent)) {
-                var sepString = msgType === 'Reply'
-                        ? '---------------------------------------'
-                        : '---------- Forwarded message ----------';
-
-                msgBody += "<br/>" + sepString + "<br/>" +
-                        'From: ' + currRecord.sender + '<br/>' +
-                        'Date: ' + currRecord.date + '<br/>' +
-                        'Subject: ' + currRecord.subject + "<br/><br/>" +
-                        origContent;
-            }
-
-            // set the form value
-            messageForm.setValues({
-                'message[body]': msgBody
-            });
-
-            messageForm.submit({
-                url: 'https://montessoricompass.com/app/messages/sent',
-                responseType: 'text',
-                success: function (form, result, data) {
-                    // indicate if send was successful
-
-                    // pop the form view
-                    history.back();
-                },
-                failure: function (options, response, data) {
-                    console.log(data);
-                }
-            });
-        };
+                        // pop the form view
+                        history.back();
+                    },
+                    failure: function (options, response, data) {
+                        console.log(data);
+                    }
+                });
+            };
+        }
     },
     onLogin: function () {
         var list = this.lookupReference('messagelist');
@@ -333,9 +334,15 @@ Ext.define('MontessoriCompass.view.message.MessagesController', {
         var controller = this;
 
         var messages = controller.getView();
+        var activeItem = messages.getActiveItem();
         var navViewModel = messages.getNavigationBar().getViewModel();
 
         if (!Ext.isEmpty(recordData.href)) {
+            activeItem.setMasked({
+                xtype: 'loadmask',
+                message: 'Please Wait...'
+            });
+
             var msgPanel = Ext.create('Ext.Container', {
                 title: 'Message',
                 itemId: 'messageViewer',
@@ -361,8 +368,7 @@ Ext.define('MontessoriCompass.view.message.MessagesController', {
                         xtype: 'container',
                         scrollable: true,
                         flex: 1,
-                        itemId: 'msgContent',
-                        html: 'Loading Message...'
+                        itemId: 'msgContent'
                     }
                 ]
             });
@@ -394,13 +400,15 @@ Ext.define('MontessoriCompass.view.message.MessagesController', {
 
                     msgPanel.down('container[itemId=msgDate]').setHtml('Date: ' + msgDate);
                     msgPanel.down('container[itemId=msgContent]').setHtml(msgBody.innerHTML);
+
+                    activeItem.setMasked(false);
+                    
+                    messages.push(msgPanel);
                 },
                 failure: function (response, opts) {
                     console.log('server-side failure with status code ' + response.status);
                 }
             });
-
-            messages.push(msgPanel);
         }
 
     },

@@ -23,7 +23,8 @@ Ext.define("MontessoriCompass.view.photo.PhotoAlbums", {
         },
         viewModel: {
             data: {
-                showBack: false
+                showBack: false,
+                showShare: false
             }
         },
         bind: {
@@ -38,6 +39,16 @@ Ext.define("MontessoriCompass.view.photo.PhotoAlbums", {
                 ui: 'plain',
                 bind: {
                     hidden: '{!showBack}'
+                }
+            },
+            {
+                iconCls: 'x-fa fa-share-alt',
+                align: 'right',
+                handler: 'onShareImage',
+                ui: 'plain',
+                style: 'color: #157FCC;',
+                bind: {
+                    hidden: '{!showShare}'
                 }
             }
         ]

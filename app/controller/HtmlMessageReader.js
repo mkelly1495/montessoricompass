@@ -30,6 +30,7 @@ Ext.define('MontessoriCompass.controller.HtmlMessageReader', {
             for (var i = 0; i < msgs.length; i++) {
                 var msgEl = msgs[i];
 
+                var shortDate = msgEl.querySelector('.right').lastChild.nodeValue.trim();
                 var isNew = msgEl.classList.contains('unread');
                 var replyLinkEl = msgEl.querySelector('a.reply');
                 var replyLink = replyLinkEl ? replyLinkEl.getAttribute('href') : null;
@@ -39,10 +40,11 @@ Ext.define('MontessoriCompass.controller.HtmlMessageReader', {
                 var subjectEl = msgEl.querySelector('span.subject').querySelector('a');
                 var msgUrl = subjectEl.getAttribute('href');
                 var subject = subjectEl.textContent;
-
+                
                 var message = {
                     isNew: isNew,
                     sender: sender.trim(),
+                    shortDate: shortDate,
                     replyLink: replyLink,
                     forwardLink: forwardLink,
                     subject: subject.trim(),
