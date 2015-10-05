@@ -38,7 +38,7 @@ Ext.define("MontessoriCompass.view.message.Messages", {
         docked: 'top',
         items: [
             {
-                iconCls: 'x-fa fa-arrow-left',
+                iconCls: 'x-fa fa-chevron-left',
                 align: 'left',
                 handler: 'onBack',
                 ui: 'plain',

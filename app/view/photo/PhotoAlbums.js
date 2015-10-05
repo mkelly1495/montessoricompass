@@ -33,7 +33,7 @@ Ext.define("MontessoriCompass.view.photo.PhotoAlbums", {
         docked: 'top',
         items: [
             {
-                iconCls: 'x-fa fa-arrow-left',
+                iconCls: 'x-fa fa-chevron-left',
                 align: 'left',
                 handler: 'onBack',
                 ui: 'plain',
@@ -46,7 +46,6 @@ Ext.define("MontessoriCompass.view.photo.PhotoAlbums", {
                 align: 'right',
                 handler: 'onShareImage',
                 ui: 'plain',
-                style: 'color: #157FCC;',
                 bind: {
                     hidden: '{!showShare}'
                 }

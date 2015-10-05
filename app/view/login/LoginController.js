@@ -69,9 +69,6 @@ Ext.define('MontessoriCompass.view.login.LoginController', {
         loginForm.submit({
             url: 'https://montessoricompass.com/app/signin',
             responseType: 'text',
-            callback: function() {
-                loginForm.setMasked(false);                
-            },
             success: function (form, result, data) {
                 var authToken = self.extractToken(data);
                 MontessoriCompass.app.setAuthToken(authToken);
@@ -88,10 +85,13 @@ Ext.define('MontessoriCompass.view.login.LoginController', {
                     viewModel.set('email', null);
                     viewModel.set('password', null);
                 }                
+                
+                loginForm.setMasked(false);                
             },
             failure: function (options, response, data) {
                 console.log(data);
                 self.getViewModel().set('invalidLoginHappened', true);
+                loginForm.setMasked(false);
             }
         });
     },

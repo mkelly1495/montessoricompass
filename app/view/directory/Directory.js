@@ -1,12 +1,14 @@
 
 Ext.define("MontessoriCompass.view.directory.Directory", {
-    extend: "Ext.navigation.View",
+    extend: "Ext.Container",
     xtype: 'directory',
     requires: [
         "MontessoriCompass.view.directory.DirectoryController",
         "MontessoriCompass.view.directory.DirectoryModel",
         'MontessoriCompass.model.DirectoryEntry',
         'Ext.dataview.List',
+        'Ext.layout.Fit',
+        'Ext.layout.VBox',
         'Ext.Toolbar',
         'Ext.field.Search'
     ],
@@ -14,6 +16,7 @@ Ext.define("MontessoriCompass.view.directory.Directory", {
     viewModel: {
         type: "directory"
     },
+    layout: 'fit',
     items: [
         {
             xtype: 'container',
